@@ -17,7 +17,21 @@ import java.util.ArrayList;
 
 public class SeriesAdapter extends RecyclerView.Adapter<SeriesAdapter.SeriesViewHolder> {
     private ArrayList<Serie> series;
-    private Context mCtx;
+
+    @Override
+    public  SeriesViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_cardview, parent, false);
+        return (new SeriesViewHolder(v));
+    }
+    @Override
+    public void onBindViewHolder(SeriesViewHolder holder, int position){
+        holder.name.setText(series.get(position).getName());
+        holder.img.setImageResource(series.get(position).getImg());
+    }
+    @Override
+    public int getItemCount(){
+        return series.size();
+    }
 
     public static class SeriesViewHolder extends RecyclerView.ViewHolder {
 
@@ -32,23 +46,7 @@ public class SeriesAdapter extends RecyclerView.Adapter<SeriesAdapter.SeriesView
             img = itemView.findViewById(R.id.img);
         }
     }
-
-    public SeriesAdapter(ArrayList<Serie> series, Context ctx){
+    public SeriesAdapter(ArrayList<Serie> series){
         this.series=series;
-        this.mCtx = ctx;
-    }
-    @Override
-    public  SeriesViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_cardview, parent, false);
-        return (new SeriesViewHolder(v));
-    }
-    @Override
-    public void onBindViewHolder(SeriesViewHolder holder, int position){
-        holder.name.setText(series.get(position).getName());
-        holder.img.setImageResource(series.get(position).getImg());
-    }
-    @Override
-    public int getItemCount(){
-        return series.size();
     }
 }
