@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,6 +18,12 @@ import java.util.ArrayList;
 
 public class SeriesAdapter extends RecyclerView.Adapter<SeriesAdapter.SeriesViewHolder> {
     private ArrayList<Serie> series;
+
+    public static MyAdapterListener onClickListener;
+
+    public interface MyAdapterListener {
+        void toastOnClick(View v, int position);
+    }
 
     @Override
     public  SeriesViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
@@ -38,15 +45,25 @@ public class SeriesAdapter extends RecyclerView.Adapter<SeriesAdapter.SeriesView
         CardView card;
         TextView name;
         ImageView img;
+        Button toast;
 
         public SeriesViewHolder(View itemView) {
             super(itemView);
             card = itemView.findViewById(R.id.card_view);
             name = itemView.findViewById(R.id.name);
             img = itemView.findViewById(R.id.img);
+            toast=itemView.findViewById(R.id.button);
+
+            toast.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v){
+                    onClickListener.toastOnClick(v, getAdapterPosition());
+                }
+            });
         }
     }
-    public SeriesAdapter(ArrayList<Serie> series){
+    public SeriesAdapter(ArrayList<Serie> series, MyAdapterListener listener){
         this.series=series;
+        onClickListener = listener;
     }
 }
