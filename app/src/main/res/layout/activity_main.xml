@@ -16,7 +16,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="Series"
+            android:text="@string/text_menu_series"
             android:onClick="menu_list_series"/>
 
         <Button
@@ -24,7 +24,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="Favs"
+            android:text="@string/text_menu_fav"
             android:onClick="menu_list_favs"/>
 
     </LinearLayout>

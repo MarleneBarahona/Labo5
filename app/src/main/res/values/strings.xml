@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">Series App</string>
+    <string name="text_app_name">Series App</string>
+    <string name="text_menu_series">Series</string>
+    <string name="text_menu_fav">Favs</string>
+    <string name="text_BONES">BONES</string>
+    <string name="text_ThisIsUs">This Is Us</string>
+    <string name="text_Hawai50">Hawai Five-0</string>
+    <string name="text_BreakingBad">Breaking Bad</string>
 </resources>

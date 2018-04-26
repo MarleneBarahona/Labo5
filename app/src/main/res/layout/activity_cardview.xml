@@ -20,7 +20,7 @@
         android:layout_height="50dp"
         android:layout_width="match_parent"
         android:gravity="center_vertical"
-        android:background="#ffffff">
+        android:background="@color/colorbg">
 
         <TextView
             android:id="@+id/name"
@@ -31,7 +31,7 @@
             android:layout_marginRight="8dp"
             android:gravity="center_vertical"
             android:textAppearance="?android:textAppearanceLarge"
-            android:text="BONES"/>
+            android:text="@string/text_BONES"/>
         <ImageButton
             android:id="@+id/button"
             android:layout_width="50dp"
