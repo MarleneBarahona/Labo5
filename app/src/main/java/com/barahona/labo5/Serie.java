@@ -9,12 +9,14 @@ public class Serie {
     private String caps;
     private int img;
     private String desc;
+    private boolean fav;
 
     public Serie(String name, String caps, int img, String desc){
         this.name = name;
         this.caps = caps;
         this.img = img;
         this.desc = desc;
+        fav = false;
     }
 
     public String getName() {
@@ -47,5 +49,12 @@ public class Serie {
 
     public void setDesc(String desc) {
         this.desc = desc;
+    }
+
+    public void set(boolean fav ){
+        this.fav = fav;
+    }
+    public boolean verificarFav(){
+        return fav;
     }
 }

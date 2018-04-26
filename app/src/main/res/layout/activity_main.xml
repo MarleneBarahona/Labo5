@@ -12,16 +12,20 @@
         android:layout_height="wrap_content">
 
         <Button
+            android:id="@+id/bttn_series"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="Series"/>
+            android:text="Series"
+            android:onClick="menu_list_series"/>
 
         <Button
+            android:id="@+id/bttn_favs"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="Favs"/>
+            android:text="Favs"
+            android:onClick="menu_list_favs"/>
 
     </LinearLayout>
     <android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"

@@ -19,27 +19,14 @@ import java.util.ArrayList;
 
 public class SeriesAdapter extends RecyclerView.Adapter<SeriesAdapter.SeriesViewHolder> {
     private ArrayList<Serie> series;
+    private static boolean serieFav = false;
+    private Context mCtx;
 
-    public static MyAdapterListener onClickListener;
-
-    public interface MyAdapterListener {
-        void toastOnClick(View v, int position);
+    public SeriesAdapter(ArrayList<Serie> series, Context context){
+        this.series = series;
+        this.mCtx = context;
     }
 
-    @Override
-    public  SeriesViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_cardview, parent, false);
-        return (new SeriesViewHolder(v));
-    }
-    @Override
-    public void onBindViewHolder(SeriesViewHolder holder, int position){
-        holder.name.setText(series.get(position).getName());
-        holder.img.setImageResource(series.get(position).getImg());
-    }
-    @Override
-    public int getItemCount(){
-        return series.size();
-    }
 
     public static class SeriesViewHolder extends RecyclerView.ViewHolder {
 
@@ -56,17 +43,45 @@ public class SeriesAdapter extends RecyclerView.Adapter<SeriesAdapter.SeriesView
             img = itemView.findViewById(R.id.img);
             toast = itemView.findViewById(R.id.button);
 
-            toast.setOnClickListener(new View.OnClickListener(){
-                @Override
-                public void onClick(View v){
-                    onClickListener.toastOnClick(v, getAdapterPosition());
-                    toast.setImageResource(R.drawable.starfav);
-                }
-            });
         }
     }
-    public SeriesAdapter(ArrayList<Serie> series, MyAdapterListener listener){
-        this.series=series;
-        onClickListener = listener;
+
+    @Override
+    public  SeriesViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_cardview, parent, false);
+        return (new SeriesViewHolder(v));
+    }
+    @Override
+    public void onBindViewHolder(final SeriesViewHolder holder, final int position){
+        holder.name.setText(series.get(position).getName());
+        holder.img.setImageResource(series.get(position).getImg());
+        holder.toast.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                if (favserie(position)) {
+                    holder.toast.setImageResource(R.drawable.starfav);
+                    ((MainActivity)mCtx).addFavList(series.get(position));
+                }else {
+                    holder.toast.setImageResource(R.drawable.estrella_gris);
+                }
+            }
+        });
+    }
+    @Override
+    public int getItemCount(){
+        return series.size();
+    }
+
+
+    public boolean favserie(int position){
+        series.get(position).set(!series.get(position).verificarFav());
+        return series.get(position).verificarFav();
+    }
+    public void setTrue(){
+        serieFav=true;
+    }
+
+    public void setFalse(){
+        serieFav=false;
     }
 }
