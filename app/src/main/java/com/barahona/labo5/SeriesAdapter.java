@@ -55,6 +55,12 @@ public class SeriesAdapter extends RecyclerView.Adapter<SeriesAdapter.SeriesView
     public void onBindViewHolder(final SeriesViewHolder holder, final int position){
         holder.name.setText(series.get(position).getName());
         holder.img.setImageResource(series.get(position).getImg());
+
+        if(series.get(position).verificarFav())
+            holder.toast.setImageResource(R.drawable.starfav);
+        else
+            holder.toast.setImageResource(R.drawable.estrella_gris);
+
         holder.toast.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){

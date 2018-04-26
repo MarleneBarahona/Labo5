@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         series.add(new Serie("BONES","22", R.drawable.bones_banner, "Emitida en FOX\n" + "Temporada producida en 2005"));
         series.add(new Serie("This is us","24", R.drawable.this_is_us, "Emitida en CBS\n" + "Temporada producida en 2010"));
         series.add(new Serie("Hawaii Five-0","18", R.drawable.hawaii_five_0, "Emitida en NBC\n" + "Temporada producida en 2016"));
+        series.add(new Serie("Breaking Bad","20", R.drawable.breaking_bad, "Emitida en AMC\n" + "Temporada producida en 2008"));
     }
     public void addFavList(Serie FavsList){
         fvlst.add(FavsList);
