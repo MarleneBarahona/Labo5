@@ -44,8 +44,8 @@ public class MainActivity extends AppCompatActivity {
     private void prepareSeries() {
         String TAG = "Mensaje";
         series = new ArrayList<>();
-        series.add(new Serie("BONES","20", R.drawable.bones_banner, "TV show blah blah blah 1"));
-        series.add(new Serie("This is us","20", R.drawable.this_is_us, "TV show blah blah blah 2"));
-        series.add(new Serie("Hawaii Five-0","20", R.drawable.hawaii_five_0, "TV show blah blah blah 3"));
+        series.add(new Serie("BONES","22", R.drawable.bones_banner, "Emitida en FOX\n" + "Temporada producida en 2005"));
+        series.add(new Serie("This is us","24", R.drawable.this_is_us, "Emitida en CBS\n" + "Temporada producida en 2010"));
+        series.add(new Serie("Hawaii Five-0","18", R.drawable.hawaii_five_0, "Emitida en NBC\n" + "Temporada producida en 2016"));
     }
 }

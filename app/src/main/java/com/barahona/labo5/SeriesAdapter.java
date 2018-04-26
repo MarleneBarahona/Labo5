@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -45,19 +46,21 @@ public class SeriesAdapter extends RecyclerView.Adapter<SeriesAdapter.SeriesView
         CardView card;
         TextView name;
         ImageView img;
-        Button toast;
+        ImageButton toast;
 
         public SeriesViewHolder(View itemView) {
             super(itemView);
+
             card = itemView.findViewById(R.id.card_view);
             name = itemView.findViewById(R.id.name);
             img = itemView.findViewById(R.id.img);
-            toast=itemView.findViewById(R.id.button);
+            toast = itemView.findViewById(R.id.button);
 
             toast.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v){
                     onClickListener.toastOnClick(v, getAdapterPosition());
+                    toast.setImageResource(R.drawable.starfav);
                 }
             });
         }
